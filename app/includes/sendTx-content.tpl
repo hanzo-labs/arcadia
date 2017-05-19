@@ -29,15 +29,6 @@
 
   <div class="row form-group">
     <address-field placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" var-name="tx.to"></address-field>
-    <!--
-    <div class="col-xs-10">
-      <label translate="SEND_addr"> To Address: </label>
-      <input class="form-control"  type="text" placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" ng-model="tx.to" ng-class="Validator.isValidAddress(tx.to) ? 'is-valid' : 'is-invalid'"/>
-    </div>
-    <div class="col-xs-2 address-identicon-container">
-      <div class="addressIdenticon" title="Address Indenticon" blockie-address="{{tx.to}}" watch-var="tx.to"></div>
-    </div>
-    -->
   </div>
 
   <!-- Amount to Send -->
@@ -71,17 +62,6 @@
       <p class="strong" translate="TRANS_advanced"> + Advanced: Add Data </p>
     </a>
     <section ng-show="showAdvance">
-      <!--
-      <div class="form-group">
-        <label translate="OFFLINE_Step2_Label_3"> Gas Price:</label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{tx.gasPrice}} Gwei</a>_
-        <input class="form-control" type="range" ng-model="tx.gasPrice" min="2" max="40" steps="1" value="20" />
-        <div class="row">
-          <p class="small col-xs-4">Not As Fast (2 Gwei)</p>
-          <p class="small col-xs-4 text-center">Fast (20 Gwei)</p>
-          <p class="small col-xs-4 text-right">Fast AF (40 Gwei)</p>
-        </div>
-      </div>
-      -->
       <div class="form-group">
         <label translate="TRANS_data"> Data: </label>
         <input class="form-control" type="text" placeholder="0x6d79657468657277616c6c65742e636f6d20697320746865206265737421" ng-model="tx.data" ng-disabled="tx.readOnly" ng-class="Validator.isValidHex(tx.data) ? 'is-valid' : 'is-invalid'"/>
@@ -94,7 +74,7 @@
     <a class="btn btn-info btn-block" ng-click="generateTx()" translate="SEND_generate"> Generate Transaction </a>
   </div>
   <div class="form-group" ng-show="showRaw">
-    <label translate="SEND_raw"> Raw Transaction </label>
+    <label translate="SEND_raw"> Unsigned Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{rawTx}}</textarea>
     <label translate="SEND_signed"> Signed Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{signedTx}}</textarea>

@@ -44,7 +44,7 @@
           </p>
           <p class="item" ng-switch-default>
             <label> {{input.name}} <small> {{input.type}} </small> </label>
-            <input class="form-control" type="text" placeholder="" ng-model="input.value" ng-class="input.value!='' ? 'is-valid' : 'is-invalid'"/>
+            <input class="form-control" type="text"  ng-model="input.value" ng-class="input.value!='' ? 'is-valid' : 'is-invalid'"/>
           </p>
       </div>
     </div>
@@ -88,7 +88,7 @@
         <!--  -->
         <p class="item" ng-switch-default>
           <label> &#8627; {{output.name}} <small> {{output.type}} </small> </label>
-          <input class="form-control" type="text" placeholder="" ng-model="output.value" readonly/>
+          <input class="form-control" type="text"  ng-model="output.value" readonly/>
         </p>
       </div>
     </div>

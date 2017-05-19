@@ -25,7 +25,7 @@
           <section class="row" ng-show="showRaw">
             <!-- Raw TX -->
             <div class="form-group col-sm-6">
-              <h4 translate="SEND_raw"> Raw Transaction </h4>
+              <h4 translate="SEND_raw"> Unsigned Transaction </h4>
               <textarea class="form-control" rows="3" readonly >{{rawTx}}</textarea>
             </div>
             <!-- Singed TX -->

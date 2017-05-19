@@ -65,7 +65,7 @@
 
           <div class="clearfix col-sm-6 col-sm-offset-6" ng-show="customNode.eip155">
             <label>Chain ID</label>
-            <input class="form-control" type="text" placeholder="" ng-model="customNode.chainId" ng-class="Validator.isPositiveNumber(customNode.chainId) ? 'is-valid' : 'is-invalid'">
+            <input class="form-control" type="text"  ng-model="customNode.chainId" ng-class="Validator.isPositiveNumber(customNode.chainId) ? 'is-valid' : 'is-invalid'">
           </div>
         </section>
 

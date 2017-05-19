@@ -40,7 +40,7 @@
 
       <div class="tagline"><span style="max-width: 395px">Open-Source & Client-Side Ether Wallet</span>
 
-        &middot; v3.8.0 &nbsp;&nbsp;
+        &middot; v3.8.1 &nbsp;&nbsp;
 
         <span class="dropdown" ng-cloak>
           <a tabindex="0"  aria-haspopup="true" aria-expanded="false" aria-label="change language. current language {{curLang}}" class="dropdown-toggle" ng-click="dropdown = !dropdown">{{curLang}}<i class="caret"></i></a>
@@ -171,7 +171,7 @@
 
           <div class="clearfix col-sm-6 col-sm-offset-6" ng-show="customNode.eip155">
             <label>Chain ID</label>
-            <input class="form-control" type="text" placeholder="" ng-model="customNode.chainId" ng-class="Validator.isPositiveNumber(customNode.chainId) ? 'is-valid' : 'is-invalid'">
+            <input class="form-control" type="text"  ng-model="customNode.chainId" ng-class="Validator.isPositiveNumber(customNode.chainId) ? 'is-valid' : 'is-invalid'">
           </div>
         </section>
 
@@ -616,15 +616,6 @@
 
   <div class="row form-group">
     <address-field placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" var-name="tx.to"></address-field>
-    <!--
-    <div class="col-xs-10">
-      <label translate="SEND_addr"> To Address: </label>
-      <input class="form-control"  type="text" placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" ng-model="tx.to" ng-class="Validator.isValidAddress(tx.to) ? 'is-valid' : 'is-invalid'"/>
-    </div>
-    <div class="col-xs-2 address-identicon-container">
-      <div class="addressIdenticon" title="Address Indenticon" blockie-address="{{tx.to}}" watch-var="tx.to"></div>
-    </div>
-    -->
   </div>
 
   <!-- Amount to Send -->
@@ -658,17 +649,6 @@
       <p class="strong" translate="TRANS_advanced"> + Advanced: Add Data </p>
     </a>
     <section ng-show="showAdvance">
-      <!--
-      <div class="form-group">
-        <label translate="OFFLINE_Step2_Label_3"> Gas Price:</label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{tx.gasPrice}} Gwei</a>_
-        <input class="form-control" type="range" ng-model="tx.gasPrice" min="2" max="40" steps="1" value="20" />
-        <div class="row">
-          <p class="small col-xs-4">Not As Fast (2 Gwei)</p>
-          <p class="small col-xs-4 text-center">Fast (20 Gwei)</p>
-          <p class="small col-xs-4 text-right">Fast AF (40 Gwei)</p>
-        </div>
-      </div>
-      -->
       <div class="form-group">
         <label translate="TRANS_data"> Data: </label>
         <input class="form-control" type="text" placeholder="0x6d79657468657277616c6c65742e636f6d20697320746865206265737421" ng-model="tx.data" ng-disabled="tx.readOnly" ng-class="Validator.isValidHex(tx.data) ? 'is-valid' : 'is-invalid'"/>
@@ -681,7 +661,7 @@
     <a class="btn btn-info btn-block" ng-click="generateTx()" translate="SEND_generate"> Generate Transaction </a>
   </div>
   <div class="form-group" ng-show="showRaw">
-    <label translate="SEND_raw"> Raw Transaction </label>
+    <label translate="SEND_raw"> Unsigned Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{rawTx}}</textarea>
     <label translate="SEND_signed"> Signed Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{signedTx}}</textarea>
@@ -1035,15 +1015,6 @@
 
   <div class="row form-group">
     <address-field placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" var-name="tx.to"></address-field>
-    <!--
-    <div class="col-xs-10">
-      <label translate="SEND_addr"> To Address: </label>
-      <input class="form-control"  type="text" placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" ng-model="tx.to" ng-class="Validator.isValidAddress(tx.to) ? 'is-valid' : 'is-invalid'"/>
-    </div>
-    <div class="col-xs-2 address-identicon-container">
-      <div class="addressIdenticon" title="Address Indenticon" blockie-address="{{tx.to}}" watch-var="tx.to"></div>
-    </div>
-    -->
   </div>
 
   <!-- Amount to Send -->
@@ -1077,17 +1048,6 @@
       <p class="strong" translate="TRANS_advanced"> + Advanced: Add Data </p>
     </a>
     <section ng-show="showAdvance">
-      <!--
-      <div class="form-group">
-        <label translate="OFFLINE_Step2_Label_3"> Gas Price:</label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{tx.gasPrice}} Gwei</a>_
-        <input class="form-control" type="range" ng-model="tx.gasPrice" min="2" max="40" steps="1" value="20" />
-        <div class="row">
-          <p class="small col-xs-4">Not As Fast (2 Gwei)</p>
-          <p class="small col-xs-4 text-center">Fast (20 Gwei)</p>
-          <p class="small col-xs-4 text-right">Fast AF (40 Gwei)</p>
-        </div>
-      </div>
-      -->
       <div class="form-group">
         <label translate="TRANS_data"> Data: </label>
         <input class="form-control" type="text" placeholder="0x6d79657468657277616c6c65742e636f6d20697320746865206265737421" ng-model="tx.data" ng-disabled="tx.readOnly" ng-class="Validator.isValidHex(tx.data) ? 'is-valid' : 'is-invalid'"/>
@@ -1100,7 +1060,7 @@
     <a class="btn btn-info btn-block" ng-click="generateTx()" translate="SEND_generate"> Generate Transaction </a>
   </div>
   <div class="form-group" ng-show="showRaw">
-    <label translate="SEND_raw"> Raw Transaction </label>
+    <label translate="SEND_raw"> Unsigned Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{rawTx}}</textarea>
     <label translate="SEND_signed"> Signed Transaction </label>
     <textarea class="form-control" rows="4" readonly >{{signedTx}}</textarea>
@@ -1208,23 +1168,22 @@
 
     <main class="tab-pane active" ng-if="globalService.currentTab==globalService.tabs.offlineTransaction.id" ng-controller='offlineTxCtrl' ng-cloak>
 
-  <!-- Title -->
-  <h1 translate="OFFLINE_Title"> Generate & Send Offline Transaction </h1>
-  <p translate="OFFLINE_Desc"> Generating offline transactions can be done in three steps. You will complete steps 1 and 3 on an online computer, and step 2 on an offline/airgapped computer. This ensures your private keys do not touch an internet-connected device. </p>
-  <!-- / Title -->
+  <h1 translate="OFFLINE_Title"> Generate / Sign / Broadcast Transactions </h1>
 
-  <hr />
+  <br /><br />
 
    <!-- Step 1 -->
 <article class="row">
 
-  <h4 class="col-xs-12 clearfix" translate="OFFLLINE_Step1_Title">Step 1: Generate Information (Online Computer)</h4>
+  <h4 class="col-xs-12 clearfix" translate="OFFLINE_1_Title">Get Account Info (Online)</h4>
 
   <!-- From Address Input -->
   <section class="col-xs-10 clearfix">
     <div class="account-help-icon"><img src="images/icon-help.svg" class="help-icon" />
-      <p class="account-help-text" translate="OFFLINE_Step1_Label_2">Note: This is the FROM address, not the TO address.</p>
-      <label translate="OFFLINE_Step1_Label_1"> From Address: </label>
+      <p class="account-help-text" translate="OFFLINE_1_Help_1">
+        Note: This is the address you are sending *from*, not the address you are sending to.
+      </p>
+      <label translate="OFFLINE_1_Label_1"> Sending Address </label>
     </div>
     <input class="form-control" type="text" placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8" ng-model="tx.from" ng-change="validateAddress(tx.from,'')"/>
   </section>
@@ -1236,7 +1195,7 @@
 
   <!-- Button -->
   <section class="col-xs-12 clearfix">
-    <a class="btn btn-info" ng-click="getWalletInfo()" translate="OFFLINE_Step1_Button">GENERATE INFORMATION</a>
+    <a class="btn btn-info" ng-click="getWalletInfo()" translate="OFFLINE_1_Button">Get Info</a>
   </section>
 
 
@@ -1244,14 +1203,14 @@
 
     <!-- Gas Price -->
     <div class="col-xs-6 col-sm-5">
-      <label translate="OFFLINE_Step2_Label_3"> Gas Price </label>
-      <input class="form-control" type="text" placeholder="" readonly="readonly" ng-model="gasPriceDec"/>
+      <label translate="TRANS_gasprice"> Gas Price </label>
+      <input class="form-control" type="text"  readonly="readonly" ng-model="gasPriceDec"/>
     </div>
 
     <!-- Nonce -->
     <div class="col-xs-6 col-sm-5">
-      <label translate="OFFLINE_Step2_Label_5"> Nonce </label>
-      <input class="form-control" type="text" placeholder="" readonly="readonly" ng-model="nonceDec"/>
+      <label translate="TRANS_gasnonce"> Nonce </label>
+      <input class="form-control" type="text"  readonly="readonly" ng-model="nonceDec"/>
     </div>
 
   </section>
@@ -1262,15 +1221,15 @@
   
 
    <article class="row">
-  <hr />
-  <h4 class="col-xs-12" translate="OFFLINE_Step2_Title"> Step 2: Generate Transaction (Offline Computer) </h4>
+  <br /><hr /><br />
+  <h4 class="col-xs-12" translate="OFFLINE_2_Title"> Generate Transaction (Offline or Online) </h4>
 </article>
 
 
 <!-- To Address -->
 <article class="row">
   <section class="col-xs-10">
-    <label translate="OFFLINE_Step2_Label_1">To Address:</label>
+    <label translate="SEND_addr">To Address</label>
     <input class="form-control"
            type="text"
            placeholder="0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8"
@@ -1287,9 +1246,7 @@
 <!-- Amount to Send -->
 <article class="row">
   <section class="col-sm-10">
-    <label translate="OFFLINE_Step2_Label_2">
-      Amount to Send
-    </label>
+    <label translate="SEND_amount">Amount to Send</label>
     <div class="input-group">
       <input class="form-control" type="text" placeholder="{{ 'SEND_amount_short' | translate }}" ng-model="tx.value"/>
       <div class="input-group-btn">
@@ -1309,15 +1266,14 @@
   </section>
 </article>
 
-
 <!-- Gas Price -->
 <article class="row">
   <section class="col-sm-10">
     <div class="account-help-icon"><img src="images/icon-help.svg" class="help-icon" />
-      <p class="account-help-text" translate="OFFLINE_Step2_Label_3b">This was displayed in Step 1</p>
-      <label translate="OFFLINE_Step2_Label_3"> Gas Price </label>
+      <p class="account-help-text" translate="OFFLINE_2_Help_1">This was displayed in Step 1.</p>
+      <label translate="TRANS_gasprice"> Gas Price </label>
     </div>
-    <input class="form-control" type="text" placeholder="" ng-model="gasPriceDec"/>
+    <input class="form-control" type="text"  ng-model="gasPriceDec"/>
   </section>
 </article>
 
@@ -1325,10 +1281,10 @@
 <article class="row">
   <section class="col-sm-10">
     <div class="account-help-icon"><img src="images/icon-help.svg" class="help-icon" />
-      <p class="account-help-text" translate="OFFLINE_Step2_Label_4b">21000 is the default gas limit.</p>
-      <label translate="OFFLINE_Step2_Label_4"> Gas Limit </label>
+      <p class="account-help-text" translate="OFFLINE_2_Help_2">21000 is the default. Tokens use 150000+. Complex contracts may need more. You shouldn\'t ever need to go over 500000</p>
+      <label translate="TRANS_gas"> Gas Limit </label>
     </div>
-    <input class="form-control" type="text" placeholder="" ng-model="tx.gasLimit"/>
+    <input class="form-control" type="text"  ng-model="tx.gasLimit"/>
   </section>
 </article>
 
@@ -1336,77 +1292,87 @@
 <article class="row">
   <section class="col-sm-10">
     <div class="account-help-icon"><img src="images/icon-help.svg" class="help-icon" />
-      <p class="account-help-text" translate="OFFLINE_Step2_Label_5b">This was displayed in Step 1.</p>
-      <label translate="OFFLINE_Step2_Label_5"> Nonce </label>
+      <p class="account-help-text" translate="OFFLINE_2_Help_3">Get this in Step 1. It's the number of transactions that have been sent from an address. Prevents double-spends.</p>
+      <label translate="TRANS_gasnonce"> Nonce </label>
     </div>
-    <input class="form-control" type="text" placeholder="" ng-model="nonceDec"/>
+    <input class="form-control" type="text"  ng-model="nonceDec"/>
   </section>
 </article>
-
 
 <!-- Data -->
 <article class="row">
   <section class="col-sm-10" ng-show="tokenTx.id=='ether'">
-    <div class="account-help-icon"><img src="images/icon-help.svg" class="help-icon" />
-      <p class="account-help-text" translate="OFFLINE_Step2_Label_6b">This is optional.</p>
-      <label translate="OFFLINE_Step2_Label_6"> Data </label>
-    </div>
-    <input class="form-control" type="text" placeholder="0x4d792045746865722057616c6c6574" id="offlineData" ng-model="tx.data" />
+  <label translate="TRANS_data"> Data </label>
+  <input class="form-control" type="text" placeholder="0x4d792045746865722057616c6c6574" id="offlineData" ng-model="tx.data" />
   </section>
 </article>
-
-
-<!-- Decrypt -->
-<article class="clearfix">
-  <wallet-decrypt-drtv></wallet-decrypt-drtv>
-</article>
-
 
 <!-- Button -->
-<article class="row" ng-show="wallet!=null">
+<article class="row">
   <section class="col-sm-10">
-    <a class="btn btn-info" ng-click="generateTx()" translate="SEND_generate">Generate Signed Transaction</a>
+    <a class="btn btn-info" ng-click="generateTx()" translate="OFFLINE_2_Button">Generate Unsigned Transaction</a>
   </section>
 </article>
 
-
 <!-- Raw Tx -->
-<article class="row" ng-show="wallet!=null">
+<article class="row">
   <div class="col-sm-8">
-    <label translate="SEND_raw"> Raw Transaction </label>
-    <textarea class="form-control" placeholder="" readonly="readonly" rows="5" ng-model="rawTx"></textarea>
+    <label translate="SEND_raw" translate="SEND_raw"> Unsigned Transaction </label>
+    <textarea class="form-control" readonly="readonly" rows="5" ng-model="rawTx"></textarea>
   </div>
 </article>
-<!-- Signed Tx -->
-<article class="row" ng-show="wallet!=null">
-  <div class="col-sm-8">
-    <label translate="SEND_signed"> Signed Transaction </label>
-    <textarea class="form-control" placeholder="" readonly="readonly" rows="5" ng-model="signedTx"></textarea>
-  </div>
-  <div class="col-sm-4">
-    <div class="qr-code" qr-code="{{signedTx}}" watch-var="signedTx" width="100%" style="margin-top: -6.5rem"></div>
-  </div>
-</article>
+
 
  
   
 
-   <article class="row">
+   <!-- Decrypt -->
+<article>
 
-  <hr />
+  <br /><hr /><br />
 
-  <h4 class="col-xs-12 clearfix" translate="OFFLINE_Step3_Title"> Step 3: Send / Publish Transaction </h4>
+  <h4 translate="OFFLINE_3_Title"> Sign Transaction (Offline) </h4>
 
-  <p class="col-xs-12 clearfix" translate="OFFLINE_Step3_Label_1"> Paste the signed transaction from Step 2 </p>
+  <wallet-decrypt-drtv></wallet-decrypt-drtv>
 
-  <section class="col-sm-10 clearfix">
-    <label translate="SEND_signed"> Signed Transaction </label>
-    <textarea class="form-control" rows="3" ng-model="signedTx"></textarea>
+</article>
+
+<!-- Signed Tx -->
+<article class="row" ng-show="wallet!=null">
+  <div class="col-sm-6">
+    <label translate="SEND_raw"> Unsigned Transaction </label>
+    <textarea class="form-control" rows="5" ng-model="rawTx"></textarea>
+  </div>
+ <div class="col-sm-6">
+    <label translate="SEND_signed
+SEND_signed"> Signed Transaction </label>
+    <textarea class="form-control"  readonly="readonly" rows="5" ng-model="signedTx"></textarea>
+  </div>
+</article>
+
+<!-- Button -->
+<article class="row" ng-show="wallet!=null">
+  <section class="col-sm-6">
+    <a class="btn btn-info" ng-click="generateTx()" translate="OFFLINE_3_Button">Generate Signed Transaction</a>
   </section>
-
-  <section class="col-sm-10 clearfix">
-    <a class="btn btn-primary" ng-click="confirmSendTx()" translate="SEND_trans">SEND TRANSACTION</a>
+  <section class="col-sm-6">
+    <div class="qr-code" qr-code="{{signedTx}}" watch-var="signedTx" width="100%" style="margin-top: -6.5rem"></div>
   </section>
+</article>
+ 
+  
+
+   <article>
+
+  <br /><hr /><br />
+
+  <h4 translate="OFFLINE_4_Title"> Broadcast Transaction (Online) </h4>
+
+  <label translate="SEND_signed" translate="SEND_signed
+SEND_signed"> Signed Transaction </label>
+  <textarea class="form-control" rows="5" ng-model="signedTx"></textarea>
+
+  <a class="btn btn-primary" ng-click="confirmSendTx()" translate="SEND_trans">SEND TRANSACTION</a>
 
 </article>
  
@@ -1576,7 +1542,7 @@
           </p>
           <p class="item" ng-switch-default>
             <label> {{input.name}} <small> {{input.type}} </small> </label>
-            <input class="form-control" type="text" placeholder="" ng-model="input.value" ng-class="input.value!='' ? 'is-valid' : 'is-invalid'"/>
+            <input class="form-control" type="text"  ng-model="input.value" ng-class="input.value!='' ? 'is-valid' : 'is-invalid'"/>
           </p>
       </div>
     </div>
@@ -1620,7 +1586,7 @@
         <!--  -->
         <p class="item" ng-switch-default>
           <label> &#8627; {{output.name}} <small> {{output.type}} </small> </label>
-          <input class="form-control" type="text" placeholder="" ng-model="output.value" readonly/>
+          <input class="form-control" type="text"  ng-model="output.value" readonly/>
         </p>
       </div>
     </div>
@@ -1660,7 +1626,7 @@
           <section class="row" ng-show="showRaw">
             <!-- Raw TX -->
             <div class="form-group col-sm-6">
-              <h4 translate="SEND_raw"> Raw Transaction </h4>
+              <h4 translate="SEND_raw"> Unsigned Transaction </h4>
               <textarea class="form-control" rows="3" readonly >{{rawTx}}</textarea>
             </div>
             <!-- Singed TX -->
@@ -1729,7 +1695,7 @@
   <section class="row" ng-show="showRaw">
     <!-- Raw TX -->
     <div class="form-group col-sm-6">
-      <h4 translate="SEND_raw"> Raw Transaction </h4>
+      <h4 translate="SEND_raw"> Unsigned Transaction </h4>
       <textarea class="form-control" rows="4" readonly> {{rawTx}} </textarea>
     </div>
     <!-- Singed TX -->
@@ -2774,17 +2740,17 @@
     </div>
     <div ng-show="h10">
       <ol>
-        <li translate="HELP_10_Desc_1"> Navigate to the "Offline Transaction" page via your online computer.</li>
+        <li translate="HELP_10_Desc_1"> Navigate to the "Offline Transaction" page via your online.</li>
         <li translate="HELP_10_Desc_2"> Enter the "From Address". Please note, this is the address you are sending FROM, not TO. This generates the nonce and gas price.</li>
-        <li translate="HELP_10_Desc_3"> Move to your offline computer. Enter the "TO ADDRESS" and the "AMOUNT" you wish to send.</li>
-        <li translate="HELP_10_Desc_4"> Enter the "GAS PRICE" as it was displayed to you on your online computer in step #1.</li>
-        <li translate="HELP_10_Desc_5"> Enter the "NONCE" as it was displayed to you on your online computer in step #1.</li>
+        <li translate="HELP_10_Desc_3"> Move to your offline. Enter the "TO ADDRESS" and the "AMOUNT" you wish to send.</li>
+        <li translate="HELP_10_Desc_4"> Enter the "GAS PRICE" as it was displayed to you on your online in step #1.</li>
+        <li translate="HELP_10_Desc_5"> Enter the "NONCE" as it was displayed to you on your online in step #1.</li>
         <li translate="HELP_10_Desc_6"> The "GAS LIMIT" has a default value of 21000. This will cover a standard transaction. If you are sending to a contract or are including additional data with your transaction, you will need to increase the gas limit. Any excess gas will be returned to you.</li>
         <li translate="HELP_10_Desc_7"> If you wish, enter some data. If you enter data, you will need to include more than the 21000 default gas limit. All data is in HEX format.</li>
         <li translate="HELP_10_Desc_8"> Select your wallet file -or- your private key and unlock your wallet.</li>
         <li translate="HELP_10_Desc_9"> Press the "GENERATE SIGNED TRANSACTION" button.</li>
-        <li translate="HELP_10_Desc_10"> The data field below this button will populate with your signed transaction. Copy this and move it back to your online computer. </li>
-        <li translate="HELP_10_Desc_11"> On your online computer, paste the signed transaction into the text field in step #3 and click "SEND Ether". This will broadcast your transaction.</li>
+        <li translate="HELP_10_Desc_10"> The data field below this button will populate with your signed transaction. Copy this and move it back to your online. </li>
+        <li translate="HELP_10_Desc_11"> On your online, paste the signed transaction into the text field in step #3 and click "SEND Ether". This will broadcast your transaction.</li>
       </ol>
     </div>
   </article>
@@ -3163,18 +3129,22 @@
 
       <div class="col-sm-3 footer-1">
         <p aria-hidden="true"><a href="https://www.myetherwallet.com/"><img src="images/logo-myetherwallet.svg" height="55px" width="auto" alt="Ether Wallet" /></a></p>
-        <p><span translate="FOOTER_1">Open-Source, client-side tool for easily & securely interacting with the Ethereum network.</span> <span translate="FOOTER_1b">Created by</span> <a aria-label="kvhnuke's github" href="https://github.com/kvhnuke" target="_blank">kvhnuke</a> & <a aria-label="tayvano's github" href="https://github.com/tayvano" target="_blank">tayvano</a>.</p>
-        <br />
-        <p><a role="link" tabindex="0" data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a></p>
+        <p>
+          <span translate="FOOTER_1">Open-Source, client-side tool for easily & securely interacting with the Ethereum network.</span>
+          <span translate="FOOTER_1b">Created by</span>
+          <a aria-label="kvhnuke's github" href="https://github.com/kvhnuke" target="_blank">kvhnuke</a>
+          &
+          <a aria-label="tayvano's github" href="https://github.com/tayvano" target="_blank">tayvano</a>.
+          <br />
+          <a role="link" tabindex="0" data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a>
+        </p>
         <div class="form-group">
-<label translate="OFFLINE_Step2_Label_3"> Gas Price:</label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{gas.value}} Gwei</a>)
-<input class="form-control" type="range" ng-model="gas.value" min="{{gas.min}}" max="{{gas.max}}" steps="1" value="0" ng-change="gasChanged()"/>
-<div class="row">
-<p class="small col-xs-4">Not As Fast</p>
-<p class="small col-xs-4 text-center">Fast</p>
-<p class="small col-xs-4 text-right">Fast AF</p>
-</div>
-</div>
+          <label translate="TRANS_gasprice"> Gas Price: </label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{gas.value}} Gwei</a>)
+          <input type="range" ng-model="gas.value" min="{{gas.min}}" max="{{gas.max}}" steps="1" ng-change="gasChanged()"/>
+          <p style="padding: 0" class="small col-xs-4">Not So Fast</p>
+          <p style="padding: 0" class="small col-xs-4 text-center">Fast</p>
+          <p style="padding: 0" class="small col-xs-4 text-right">Fast AF</p>
+        </div>
       </div>
 
       <div class="col-sm-6 footer-2">

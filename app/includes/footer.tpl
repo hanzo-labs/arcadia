@@ -16,7 +16,7 @@
           <a role="link" tabindex="0" data-toggle="modal" data-target="#disclaimerModal" translate="FOOTER_4"> Disclaimer </a>
         </p>
         <div class="form-group">
-          <label translate="OFFLINE_Step2_Label_3"> Gas Price: </label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{gas.value}} Gwei</a>)
+          <label translate="TRANS_gasprice"> Gas Price: </label> (<a href="http://ethgasstation.info/minerTable.php" target="_blank">{{gas.value}} Gwei</a>)
           <input type="range" ng-model="gas.value" min="{{gas.min}}" max="{{gas.max}}" steps="1" ng-change="gasChanged()"/>
           <p style="padding: 0" class="small col-xs-4">Not So Fast</p>
           <p style="padding: 0" class="small col-xs-4 text-center">Fast</p>

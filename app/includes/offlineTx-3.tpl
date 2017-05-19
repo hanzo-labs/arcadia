@@ -1,18 +1,33 @@
-<article class="row">
+<!-- Decrypt -->
+<article>
 
-  <hr />
+  <br /><hr /><br />
 
-  <h4 class="col-xs-12 clearfix" translate="OFFLINE_Step3_Title"> Step 3: Send / Publish Transaction </h4>
+  <h4 translate="OFFLINE_3_Title"> Sign Transaction (Offline) </h4>
 
-  <p class="col-xs-12 clearfix" translate="OFFLINE_Step3_Label_1"> Paste the signed transaction from Step 2 </p>
+  <wallet-decrypt-drtv></wallet-decrypt-drtv>
 
-  <section class="col-sm-10 clearfix">
-    <label translate="SEND_signed"> Signed Transaction </label>
-    <textarea class="form-control" rows="3" ng-model="signedTx"></textarea>
+</article>
+
+<!-- Signed Tx -->
+<article class="row" ng-show="wallet!=null">
+  <div class="col-sm-6">
+    <label translate="SEND_raw"> Unsigned Transaction </label>
+    <textarea class="form-control" rows="5" ng-model="rawTx"></textarea>
+  </div>
+ <div class="col-sm-6">
+    <label translate="SEND_signed
+SEND_signed"> Signed Transaction </label>
+    <textarea class="form-control"  readonly="readonly" rows="5" ng-model="signedTx"></textarea>
+  </div>
+</article>
+
+<!-- Button -->
+<article class="row" ng-show="wallet!=null">
+  <section class="col-sm-6">
+    <a class="btn btn-info" ng-click="generateTx()" translate="OFFLINE_3_Button">Generate Signed Transaction</a>
   </section>
-
-  <section class="col-sm-10 clearfix">
-    <a class="btn btn-primary" ng-click="confirmSendTx()" translate="SEND_trans">SEND TRANSACTION</a>
+  <section class="col-sm-6">
+    <div class="qr-code" qr-code="{{signedTx}}" watch-var="signedTx" width="100%" style="margin-top: -6.5rem"></div>
   </section>
-
 </article>
