@@ -1,5 +1,7 @@
 ### Website: https://www.MyEtherWallet.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hanzo-io/arcadia.svg?token=d355825706a5d6d6f6e65c9c61a73217d1c9dc7b5015164179a87cbbf3335a7b&ts=1498595021959)](https://greenkeeper.io/)
+
 ### Chrome Extension: https://chrome.google.com/webstore/detail/myetherwallet-cx/nlbmnnijcnlegkjjpcfjclmcfggfefdm
 
 ### Download the Latest Release: https://github.com/kvhnuke/etherwallet/releases/latest
